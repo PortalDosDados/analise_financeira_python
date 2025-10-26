@@ -26,6 +26,9 @@ for ticker in tickers:
 # Concatena todos em um único DataFrame longo
 df_longo = pd.concat(dfs).reset_index()
 
+# Mudando Ticker do IBOV
+df_longo['Ticker'] = df_longo['Ticker'].replace('^BVSP', 'IBOV') 
+
 # Reordenando as colunas
 
 df_longo = df_longo[['Date', 'Ticker', 'Close','High', 'Low','Open', 'Volume']]
